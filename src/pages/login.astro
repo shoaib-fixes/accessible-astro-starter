@@ -1,0 +1,158 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+import PageHeader from '../components/PageHeader.astro'
+---
+
+<DefaultLayout title="Login - Employ Wizard">
+  <PageHeader
+    title="Login to Employ Wizard"
+    subtitle="Access your dashboard and start analyzing CVs with AI-powered insights."
+    bgType="bordered"
+  />
+
+  <section class="my-32">
+    <div class="container">
+      <div class="max-w-sm mx-auto">
+        <div class="space-content">
+          <form id="login-form" class="space-y-8">
+            <div>
+              <label for="email" class="block text-sm font-medium mb-3" style="color: var(--foreground-color);">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="w-full px-4 py-3 border border-solid rounded-lg focus:outline-none transition-all"
+                style="border-color: var(--border-color-subtle); background-color: var(--background-color); color: var(--foreground-color); border-radius: var(--radius-large);"
+                placeholder="Enter your email"
+                required
+                onfocus="this.style.boxShadow = '0 0 0 3px rgba(214, 72, 255, 0.3)'; this.style.borderColor = 'var(--color-primary-400)';"
+                onblur="this.style.boxShadow = 'none'; this.style.borderColor = 'var(--border-color-subtle);'"
+              />
+            </div>
+
+            <div>
+              <label for="password" class="block text-sm font-medium mb-3" style="color: var(--foreground-color);">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="w-full px-4 py-3 border border-solid rounded-lg focus:outline-none transition-all"
+                style="border-color: var(--border-color-subtle); background-color: var(--background-color); color: var(--foreground-color); border-radius: var(--radius-large);"
+                placeholder="Enter your password"
+                required
+                onfocus="this.style.boxShadow = '0 0 0 3px rgba(214, 72, 255, 0.3)'; this.style.borderColor = 'var(--color-primary-400)';"
+                onblur="this.style.boxShadow = 'none'; this.style.borderColor = 'var(--border-color-subtle);'"
+              />
+            </div>
+
+            <div class="flex items-center justify-between">
+              <label class="flex items-center">
+                <input type="checkbox" class="rounded mr-2" style="border-color: var(--border-color-subtle);" />
+                <span class="text-sm" style="color: var(--foreground-color);">Remember me</span>
+              </label>
+              <a href="#" class="text-sm hover:underline" style="color: var(--link-color);">Forgot password?</a>
+            </div>
+
+            <button
+              type="submit"
+              class="button w-full py-4 px-6 text-center font-medium"
+            >
+              Sign In
+            </button>
+          </form>
+
+          <div class="mt-8 text-center">
+            <p class="text-sm" style="color: var(--foreground-color); opacity: 0.7;">
+              Don't have an account?
+              <a href="#" class="font-medium hover:underline ml-1" style="color: var(--link-color);">Sign up</a>
+            </p>
+          </div>
+
+          <!-- Error message container -->
+          <div id="error-message" class="hidden mt-6 p-4 rounded-lg border border-solid" style="background-color: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); border-radius: var(--radius-large);">
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <svg class="h-5 w-5" style="color: #dc2626;" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div class="ml-3">
+                <h3 class="text-sm font-medium" style="color: #dc2626;">
+                  Login Failed
+                </h3>
+                <div class="mt-2 text-sm" style="color: #b91c1c;">
+                  <p>Invalid email or password. Please try again.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</DefaultLayout>
+
+<style>
+  .max-w-sm {
+    max-width: 24rem;
+  }
+
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .space-y-8 > * + * {
+    margin-top: 2rem;
+  }
+
+  .mr-2 {
+    margin-right: 0.5rem;
+  }
+
+  .ml-1 {
+    margin-left: 0.25rem;
+  }
+
+  .flex-shrink-0 {
+    flex-shrink: 0;
+  }
+
+  .h-5 {
+    height: 1.25rem;
+  }
+
+  .w-5 {
+    width: 1.25rem;
+  }
+
+  .hover\:underline:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const loginForm = document.getElementById('login-form') as HTMLFormElement
+    const errorMessage = document.getElementById('error-message') as HTMLElement
+
+    if (loginForm) {
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault()
+
+        // Show error message for any login attempt
+        errorMessage.classList.remove('hidden')
+
+        // Clear form
+        const emailInput = document.getElementById('email') as HTMLInputElement
+        const passwordInput = document.getElementById('password') as HTMLInputElement
+
+        if (emailInput) emailInput.value = ''
+        if (passwordInput) passwordInput.value = ''
+
+        // Focus back on email for accessibility
+        if (emailInput) emailInput.focus()
+      })
+    }
+  })
+</script>

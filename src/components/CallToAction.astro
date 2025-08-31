@@ -4,17 +4,17 @@ import { Icon } from 'astro-icon/components'
 /**
  * CallToAction Component
  *
- * @description A prominent call-to-action section with a title and link
+ * @description A prominent call-to-action section for Employ Wizard
  */
 interface Props {
   /**
    * The title text to display
-   * @default "Get this theme on GitHub"
+   * @default "Ready to Transform Your Recruitment Process?"
    */
   title?: string
   /**
    * The URL the button should link to
-   * @default "https://github.com/incluud/accessible-astro-starter"
+   * @default "mailto:info@employwizard.com"
    */
   link?: string
   /**
@@ -25,9 +25,9 @@ interface Props {
 }
 
 const {
-  title = 'Get this theme on GitHub',
-  link = 'https://github.com/incluud/accessible-astro-starter',
-  linkText = 'Use this theme',
+  title = 'Ready to Transform Your Recruitment Process?',
+  link = 'mailto:info@employwizard.com',
+  linkText = 'Get Demo',
 } = Astro.props
 ---
 

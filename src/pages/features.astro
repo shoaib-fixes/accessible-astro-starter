@@ -1,0 +1,47 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+import PageHeader from '../components/PageHeader.astro'
+import Feature from '../components/Feature.astro'
+---
+
+<DefaultLayout title="Features - Employ Wizard">
+  <PageHeader
+    title="Powerful Features for Modern Recruitment"
+    subtitle="Discover how Employ Wizard transforms your hiring process with AI-powered CV analysis and intelligent insights."
+    bgType="bordered"
+  />
+
+  <section class="my-32">
+    <div class="container">
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+        <Feature icon="lucide:brain" title="AI CV Analysis">
+          Advanced machine learning algorithms analyze CVs comprehensively, understanding context and nuance beyond simple keyword matching.
+        </Feature>
+        <Feature icon="lucide:target" title="Skill Matching">
+          Precisely match candidate skills, experience, and qualifications against your specific job requirements with intelligent scoring.
+        </Feature>
+        <Feature icon="lucide:shield" title="GDPR Compliant">
+          Fully compliant with UK GDPR regulations with all data processing occurring within secure UK data centres.
+        </Feature>
+        <Feature icon="lucide:users" title="Bulk Processing">
+          Handle multiple CVs simultaneously with efficient batch processing capabilities, perfect for high-volume recruitment.
+        </Feature>
+        <Feature icon="lucide:bar-chart-3" title="Smart Ranking">
+          Data-driven candidate ranking based on comprehensive analysis of fit, experience, and potential for informed decisions.
+        </Feature>
+        <Feature icon="lucide:lock" title="Secure & Private">
+          End-to-end encryption and secure UK-based hosting ensure your candidate data remains protected and confidential.
+        </Feature>
+        <Feature icon="lucide:accessibility" title="Accessible Interface">
+          WCAG 2.2 AA compliant design ensuring usability for all HR professionals, regardless of ability or assistive technology used.
+        </Feature>
+        <Feature icon="lucide:zap" title="Real-time Insights">
+          Instant feedback and detailed analysis reports help you make informed hiring decisions quickly and efficiently.
+        </Feature>
+        <Feature icon="lucide:settings" title="Custom Templates">
+          Create and save job description templates for consistent, standardised candidate evaluation across your organisation.
+        </Feature>
+      </div>
+    </div>
+  </section>
+</DefaultLayout>
